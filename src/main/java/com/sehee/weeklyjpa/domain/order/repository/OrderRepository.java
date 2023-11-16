@@ -13,6 +13,6 @@ public interface OrderRepository extends JpaRepository<Order, String> {
 
     List<Order> findAllByOrderStatusOrderByOrderDatetime(OrderStatus orderStatus);
 
-    @Query("SELECT o FROM Order AS o WHERE o.memo LIKE %?1%")
+    @Query("SELECT o FROM Order o WHERE o.memo LIKE %?1%") // JPQL
     Optional<Order> findByMemo(String memo);
 }
